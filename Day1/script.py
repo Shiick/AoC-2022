@@ -1,3 +1,5 @@
+# THIS IS DAY 1
+
 elves = 0
 
 inputs = []
