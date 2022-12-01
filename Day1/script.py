@@ -6,18 +6,18 @@ inputs = []
 current_input = 0
 
 with open("inputs.txt") as input_file:
-    for line in input_file:
-        if (line.isspace()):
+    for line in input_file: # for each line in file
+        if (line.isspace()): # to check if the last elf is done
             inputs.append(current_input)
             current_input = 0
             elves += 1
-        elif not line.endswith("\n"):
+        elif not line.endswith("\n"): # if last line in the file, add the last elf
             value = int(line)
             current_input += value
             inputs.append(current_input)
             current_input = 0
             elves += 1
-        else:
+        else: # random calorie value
             value = int(line)
             current_input += value
 
