@@ -1,0 +1,1 @@
+This could have been done for day 1: https://www.geeksforgeeks.org/python-program-to-find-n-largest-elements-from-a-list/
