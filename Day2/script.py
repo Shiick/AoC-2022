@@ -1,4 +1,4 @@
-# THIS IS DAY ONE
+# THIS IS DAY TWO
 
 results_part_one = {"A X": 4, # every result possible
                     "A Y": 8,
