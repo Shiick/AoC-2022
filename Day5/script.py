@@ -32,7 +32,8 @@ with open("inputs.txt") as input_file:
             continue
         if(line == ""): # line 10 in inputs.txt (or line 5 in test_inputs)
             found_break = True
-            stacks = grid[len(grid)-1].lstrip().replace("   ", ",").replace(" ", "").split(",")
+            stacks = ','.join(grid[len(grid)-1].split()).split(",")
+            print(stacks)
             dictionary = dict.fromkeys(stacks, [])
             for stack in stacks:
                 for row in range(len(grid) - 1):
