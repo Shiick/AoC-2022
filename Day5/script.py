@@ -1,5 +1,7 @@
 # THIS IS DAY 5
 
+import copy
+
 grid = []
 
 dictionary = {}
@@ -20,7 +22,7 @@ def part_two(line):
         dictionary_p2[instruction[5]].append(dictionary_p2[instruction[3]][len(dictionary_p2[instruction[3]]) - (i+1)]) # get the crate from the top minus i + 1 (if no + 1, getting less crate than intended)
         del dictionary_p2[instruction[3]][len(dictionary_p2[instruction[3]]) - (i+1)] # remove the crate from it's previous stack
 
-with open("test_inputs.txt") as input_file:
+with open("inputs.txt") as input_file:
     file = input_file.read().split('\n')
     for line in file: # for each line in file
         if (found_break): # executing instructions here, after it mapped the grid
@@ -32,12 +34,11 @@ with open("test_inputs.txt") as input_file:
             found_break = True
             stacks = grid[len(grid)-1].lstrip().replace("   ", ",").replace(" ", "").split(",")
             dictionary = dict.fromkeys(stacks, [])
-            dictionary_p2 = dict.fromkeys(stacks, [])
             for stack in stacks:
                 for row in range(len(grid) - 1):
                     if (grid[row][1+(int(stack)-1)*4] != " "):
                         dictionary[stack] = [grid[row][1+(int(stack)-1)*4]] + dictionary[stack]
-                        dictionary_p2[stack] = [grid[row][1+(int(stack)-1)*4]] + dictionary_p2[stack]
+            dictionary_p2 = copy.deepcopy(dictionary)
             continue
         grid.append(line)
 
